@@ -8,6 +8,7 @@ import Participant from "./Participant";
 
 const ParticipantsList = () => {
   const [participants, setParticipants] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchData();
@@ -17,11 +18,15 @@ const ParticipantsList = () => {
     try {
       const response = await axios.get("http://localhost:8000/participants");
       setParticipants(response.data);
-      console.log(response.data);
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
     }
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <ParticipantsContainer>
