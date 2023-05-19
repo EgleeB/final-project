@@ -25,14 +25,14 @@ dbConnection.query("CREATE DATABASE IF NOT EXISTS final_project", (err) => {
             first_name VARCHAR(255) NOT NULL,
             last_surname VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL UNIQUE,
-            password VARCHAR(255) NOT NULL;
+            password VARCHAR(255) NOT NULL
             )`;
 
     const participantsTableQuery = `
             CREATE TABLE IF NOT EXISTS participants (
               id INT PRIMARY KEY AUTO_INCREMENT,
               first_name VARCHAR(255) NOT NULL,
-              last_surname VARCHAR(255) NOT NULL,
+              last_name VARCHAR(255) NOT NULL,
               email VARCHAR(255) NOT NULL UNIQUE,
               phone_number VARCHAR(255) NOT NULL,
               admin_id INT,
@@ -40,16 +40,15 @@ dbConnection.query("CREATE DATABASE IF NOT EXISTS final_project", (err) => {
             )
           `;
 
-    dbConnection,
-      query(adminTableQuery, (err) => {
-        if (err) throw err;
-        console.log("admin table created");
+    dbConnection.query(adminTableQuery, (err) => {
+      if (err) throw err;
+      console.log("admin table created");
 
-        dbConnection.query(participantsTableQuery, (err) => {
-          if (err) throw err;
-          console.log("participants table created");
-        });
+      dbConnection.query(participantsTableQuery, (err) => {
+        if (err) throw err;
+        console.log("participants table created");
       });
+    });
   });
 });
 
