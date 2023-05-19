@@ -2,7 +2,7 @@ import {
   ParticipantContainer,
   ParticipantName,
   ParticipantInfo,
-} from "../../Styles/StyledParticipant";
+} from "../Styles/StyledParticipant";
 
 const Participant = () => {
   return (

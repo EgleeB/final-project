@@ -1,7 +1,7 @@
 import {
   ParticipantsContainer,
   ParticipantsTitle,
-} from "../../Styles/StyledParticipantsList";
+} from "../Styles/StyledParticipantsList";
 import Participant from "./Participant";
 
 const ParticipantsList = () => {
