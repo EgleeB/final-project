@@ -4,12 +4,14 @@ import {
   ParticipantInfo,
 } from "../Styles/StyledParticipant";
 
-const Participant = () => {
+const Participant = (participant) => {
   return (
     <ParticipantContainer>
-      <ParticipantName>Vardas ir Pavarde</ParticipantName>
-      <ParticipantInfo>Email: </ParticipantInfo>
-      <ParticipantInfo>Phone Number:</ParticipantInfo>
+      <ParticipantName>
+        {participant.first_name} {participant.last_name}
+      </ParticipantName>
+      <ParticipantInfo>{participant.email} </ParticipantInfo>
+      <ParticipantInfo>{participant.phone_number}</ParticipantInfo>
     </ParticipantContainer>
   );
 };

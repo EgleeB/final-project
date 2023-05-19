@@ -4,7 +4,7 @@ const { defaultCallback } = require("../helpers/dbHelpers");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/participants", (req, res) => {
   dbConnection.query("SELECT * FROM participants", (err, result) => {
     defaultCallback(err, result, res);
   });
