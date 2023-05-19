@@ -29,13 +29,15 @@ const ParticipantsList = () => {
   }
 
   return (
-    <ParticipantsContainer>
-      <ParticipantsTitle>Participants List</ParticipantsTitle>
-      {participants.map((participant) => {
-        return <Participant key={participant.id} {...participant} />;
-      })}
-      <Participant />
-    </ParticipantsContainer>
+    <>
+      <ParticipantsContainer>
+        <ParticipantsTitle>Participants List</ParticipantsTitle>
+        {participants.map((participant) => {
+          return <Participant key={participant.id} {...participant} />;
+        })}
+        <Participant />
+      </ParticipantsContainer>
+    </>
   );
 };
 

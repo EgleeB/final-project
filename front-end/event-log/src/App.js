@@ -5,7 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/NavBar/NavBar";
 import RegistrationForm from "./Components/Registration/Registration";
 import LoginForm from "./Components/Login/Login";
-import { MainPage } from "./Components/MainPage/MainPage";
+import ParticipantsList from "./Components/MainPage/ParticipantsList";
+import ParticipantForm from "./Components/MainPage/ParticipantForm";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="/register" element={<RegistrationForm />} />
-        <Route path="/participants" element={<MainPage />} />
+        <Route path="/participants" element={<ParticipantsList />} />
+        <Route path="/addParticipant" element={<ParticipantForm />} />
       </Routes>
     </>
   );

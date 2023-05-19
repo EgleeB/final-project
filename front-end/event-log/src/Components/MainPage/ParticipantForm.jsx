@@ -8,6 +8,7 @@ import {
   Input,
   Button,
 } from "../Styles/StyledRegistration";
+import { useNavigate } from "react-router-dom";
 
 const ParticipantForm = () => {
   const [form, setForm] = useState({
@@ -16,6 +17,8 @@ const ParticipantForm = () => {
     email: "",
     phone_number: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,7 +29,7 @@ const ParticipantForm = () => {
     axios
       .post("http://localhost:8000/participants", form)
       .then((response) => {
-        console.log(response);
+        navigate("/participants");
       })
       .catch((err) => {
         console.log(err);
