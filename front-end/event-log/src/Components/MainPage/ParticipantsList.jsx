@@ -24,6 +24,12 @@ const ParticipantsList = () => {
     }
   };
 
+  const handleDeleteParticipant = (participantId) => {
+    setParticipants((prevParticipants) =>
+      prevParticipants.filter((participant) => participant.id !== participantId)
+    );
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -33,9 +39,14 @@ const ParticipantsList = () => {
       <ParticipantsContainer>
         <ParticipantsTitle>Participants List</ParticipantsTitle>
         {participants.map((participant) => {
-          return <Participant key={participant.id} {...participant} />;
+          return (
+            <Participant
+              key={participant.id}
+              participant={participant}
+              onDelete={handleDeleteParticipant}
+            />
+          );
         })}
-        <Participant />
       </ParticipantsContainer>
     </>
   );

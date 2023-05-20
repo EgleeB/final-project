@@ -25,4 +25,14 @@ router.post("/participants", (req, res) => {
   );
 });
 
+router.delete("/participants/:id", (req, res) => {
+  const { id } = req.params;
+
+  dbConnection.execute(
+    "DELETE FROM participants WHERE id=?",
+    [id],
+    (err, result) => defaultCallback(err, result, res)
+  );
+});
+
 module.exports = router;
