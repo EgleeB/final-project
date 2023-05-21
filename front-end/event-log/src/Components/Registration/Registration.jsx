@@ -5,6 +5,7 @@ import {
   Label,
   Input,
   Button,
+  Text,
 } from "../Styles/StyledRegistration";
 import { useState } from "react";
 import axios from "axios";
@@ -39,7 +40,7 @@ const RegistrationForm = () => {
 
   return (
     <FormContainer>
-      <Title>Admin registration Form</Title>
+      <Title>Admin Registration Form</Title>
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="firstName">First Name</Label>
         <Input
@@ -59,6 +60,9 @@ const RegistrationForm = () => {
         <Input type="text" id="email" name="email" onChange={handleChange} />
         <Label htmlFor="password">Password</Label>
         <Input type="text" name="password" onChange={handleChange} />
+        <Text>
+          Already have an account? <a href="/">Login here</a>
+        </Text>
         <Button type="submit">Submit</Button>
       </Form>
     </FormContainer>

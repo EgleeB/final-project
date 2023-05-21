@@ -22,3 +22,15 @@ export const StyledNavBarLink = styled.a`
     color: yellow;
   }
 `;
+
+export const StyledButton = styled.button`
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    color: yellow;
+  }
+`;

@@ -33,3 +33,8 @@ export const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+
+export const Text = styled.p`
+  margin-top: 10px;
+  color: #333;
+`;

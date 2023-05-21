@@ -5,12 +5,15 @@ import {
   Label,
   Input,
   Button,
+  Text,
 } from "../Styles/StyledRegistration";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 
 const LoginForm = () => {
+  const { setIsSignedIn } = useContext(AuthenticationContext);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -27,12 +30,15 @@ const LoginForm = () => {
     axios
       .post("http://localhost:8000/login", form)
       .then((response) => {
-        navigate("/addParticipant");
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+        setIsSignedIn(true);
+        navigate("/participants");
         console.log(response);
+        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
-        alert("Invalid email or password");
       });
   };
 
@@ -44,12 +50,15 @@ const LoginForm = () => {
         <Input type="text" id="email" name="email" onChange={handleChange} />
         <Label htmlFor="password">Password</Label>
         <Input
-          type="text"
+          type="password"
           id="password"
           name="password"
           onChange={handleChange}
         />
-        <Button type="submit">Submit</Button>
+        <Text>
+          Don't have an account? <a href="/register">Register here</a>
+        </Text>
+        <Button type="submit">Login</Button>
       </Form>
     </FormContainer>
   );
