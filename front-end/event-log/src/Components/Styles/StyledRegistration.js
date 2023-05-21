@@ -38,3 +38,9 @@ export const Text = styled.p`
   margin-top: 10px;
   color: #333;
 `;
+
+export const Error = styled.p`
+  color: red;
+  font-size: 15px;
+  margin-top: 10px;
+`;

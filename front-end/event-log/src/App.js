@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<LoginForm />} />
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegistrationForm />} />
         <Route element={<Protected />}>
           <Route path="/participants" element={<ParticipantsList />} />

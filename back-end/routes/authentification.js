@@ -32,7 +32,7 @@ router.post("/login", (req, res) => {
   const { email, password } = body;
 
   const incorrectCredentialsResponse = () =>
-    res.json({ message: "Incorrect email or password" });
+    res.status(401).json({ message: "Incorrect email or password" });
 
   if (!email || !password) {
     incorrectCredentialsResponse();

@@ -30,7 +30,7 @@ const NavBar = () => {
         </>
       ) : (
         <>
-          <StyledNavBarLink href="/">Login</StyledNavBarLink>
+          <StyledNavBarLink href="/login">Login</StyledNavBarLink>
           <StyledNavBarLink href="/register">Register</StyledNavBarLink>
         </>
       )}

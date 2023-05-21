@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   Text,
+  Error,
 } from "../Styles/StyledRegistration";
 import { useState, useContext } from "react";
 import axios from "axios";
@@ -14,6 +15,8 @@ import { AuthenticationContext } from "../Authentication/AuthentificationContext
 
 const LoginForm = () => {
   const { setIsSignedIn } = useContext(AuthenticationContext);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -38,6 +41,7 @@ const LoginForm = () => {
         console.log(response.data);
       })
       .catch((err) => {
+        setErrorMessage("Incorrect email or password");
         console.log(err);
       });
   };
@@ -55,6 +59,7 @@ const LoginForm = () => {
           name="password"
           onChange={handleChange}
         />
+        <Error>{errorMessage}</Error>
         <Text>
           Don't have an account? <a href="/register">Register here</a>
         </Text>
