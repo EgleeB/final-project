@@ -6,12 +6,14 @@ import {
   Input,
   Button,
   Text,
+  Error,
 } from "../Styles/StyledRegistration";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
+  const [emailError, setEmailError] = useState("");
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
@@ -19,18 +21,47 @@ const RegistrationForm = () => {
     password: "",
   });
 
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+
+    if (e.target.name === "email") {
+      const emailValue = e.target.value.trim();
+      if (emailValue === "") {
+        setEmailError("");
+      } else {
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (!emailRegex.test(emailValue)) {
+          setEmailError("Entered wrong format of email");
+        } else {
+          setEmailError("");
+        }
+      }
+    }
   };
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const capitalizedForm = {
+      ...form,
+      first_name: capitalizeFirstLetter(form.first_name),
+      last_name: capitalizeFirstLetter(form.last_name),
+    };
+
+    if (emailError) {
+      return;
+    }
+
     axios
-      .post("http://localhost:8000/register", form)
+      .post("http://localhost:8000/register", capitalizedForm)
       .then((response) => {
-        navigate("/");
+        navigate("/login");
         console.log(response);
       })
       .catch((err) => {
@@ -57,12 +88,13 @@ const RegistrationForm = () => {
           onChange={handleChange}
         />
         <Label htmlFor="email">Email</Label>
-        <Input type="text" id="email" name="email" onChange={handleChange} />
+        <Input type="email" id="email" name="email" onChange={handleChange} />
         <Label htmlFor="password">Password</Label>
-        <Input type="text" name="password" onChange={handleChange} />
+        <Input type="password" name="password" onChange={handleChange} />
         <Text>
           Already have an account? <a href="/">Login here</a>
         </Text>
+        <Error>{emailError}</Error>
         <Button type="submit">Submit</Button>
       </Form>
     </FormContainer>

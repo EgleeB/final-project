@@ -31,12 +31,15 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   margin-top: 10px;
+  margin-left: 10px;
   background-color: #333;
   color: #fff;
+  font-weight: 600;
   border: none;
   padding: 10px;
   border-radius: 10px;
   width: 80px;
+
   cursor: pointer;
 `;
 

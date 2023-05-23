@@ -7,6 +7,7 @@ import {
   Label,
   Input,
   Button,
+  Error,
 } from "../Styles/StyledRegistration";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../Authentication/AuthentificationContext";
@@ -22,23 +23,48 @@ const ParticipantForm = () => {
     admin_id: adminId,
   });
 
+  const [emailError, setEmailError] = useState("");
+
   const navigate = useNavigate();
+
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+
+    if (e.target.name === "email") {
+      const emailValue = e.target.value.trim();
+      if (emailValue === "") {
+        setEmailError("");
+      } else {
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (!emailRegex.test(emailValue)) {
+          setEmailError("Entered wrong format of email");
+        } else {
+          setEmailError("");
+        }
+      }
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      admin_id: adminId, // Include the adminId in the request body
-      ...form, // Include other participant data
+    const capitalizedForm = {
+      ...form,
+      first_name: capitalizeFirstLetter(form.first_name),
+      last_name: capitalizeFirstLetter(form.last_name),
     };
+
+    if (emailError) {
+      return;
+    }
 
     try {
       const response = await axios.post(
         "http://localhost:8000/participants",
-        data
+        capitalizedForm
       );
       navigate("/participants");
       console.log(response);
@@ -75,6 +101,7 @@ const ParticipantForm = () => {
           name="phone_number"
           onChange={handleChange}
         />
+        <Error>{emailError}</Error>
         <Button type="submit">Submit</Button>
       </Form>
     </FormContainer>

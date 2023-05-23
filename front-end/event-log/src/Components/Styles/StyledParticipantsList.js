@@ -9,7 +9,9 @@ export const ParticipantsContainer = styled.div`
   gap: 20px;
 `;
 
-export const ParticipantsTitle = styled.h2`
+export const ParticipantsTitle = styled.h1`
+  margin-top: 30px;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: left;
+  padding-left: 40px;
 `;

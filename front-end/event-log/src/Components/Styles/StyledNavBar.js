@@ -24,15 +24,33 @@ export const StyledNavBarLink = styled.a`
   }
 `;
 
-export const StyledButton = styled.button`
-  background-color: #2196f3; /* White color */
-  color: white; /* Blue color */
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+// export const StyledButton = styled.button`
+//   background-color: #2196f3;
+//   color: white;
+//   border: none;
+//   padding: 10px;
+//   border-radius: 10px;
+//   cursor: pointer;
+//   &:hover {
+//     background-color: #fffaf0;
+//     color: #2196f3;
+//   }
+// `;
+
+export const StyledLogoLink = styled.a`
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: black;
   &:hover {
-    background-color: #fffaf0; /* Hover background color matches the description color */
-    color: #2196f3; /* Hover text color matches the link color */
+    color: #858282;
   }
+`;
+
+export const StyledNavBarButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
 `;

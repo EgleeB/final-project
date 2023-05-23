@@ -7,7 +7,7 @@ import { Button } from "./Styles/StyledRegistration";
 const FrontPage = () => {
   return (
     <Container>
-      <Title>Event Log</Title>
+      <Title>RegMaster</Title>
       <Description>
         This is a simple event log app. It allows you to add, delete, and manage
         participants seamlessly. With this app, you can effortlessly register

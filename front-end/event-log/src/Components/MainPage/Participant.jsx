@@ -29,7 +29,7 @@ const Participant = ({ participant, onDelete }) => {
         {participant.first_name} {participant.last_name}
       </ParticipantName>
       <ParticipantInfo> {participant.email} </ParticipantInfo>
-      <ParticipantInfo>{participant.phone_number}</ParticipantInfo>
+      <ParticipantInfo>+{participant.phone_number}</ParticipantInfo>
       <Button onClick={handleRemove}> Remove</Button>
     </ParticipantContainer>
   );

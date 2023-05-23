@@ -1,8 +1,13 @@
-import { StyledNavBar, StyledNavBarLink } from "../Styles/StyledNavBar";
+import {
+  StyledLogoLink,
+  StyledNavBar,
+  StyledNavBarButtonContainer,
+  StyledNavBarLink,
+} from "../Styles/StyledNavBar";
 
 import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "../Styles/StyledRegistration";
 
 const NavBar = () => {
@@ -27,9 +32,15 @@ const NavBar = () => {
         </>
       ) : (
         <>
-          <StyledNavBarLink href="/">Home</StyledNavBarLink>
-          <StyledNavBarLink href="/login">Login</StyledNavBarLink>
-          <StyledNavBarLink href="/register">Register</StyledNavBarLink>
+          <StyledLogoLink href="/">RegMaster</StyledLogoLink>
+          <StyledNavBarButtonContainer>
+            <Link to="/login">
+              <Button>Login</Button>
+            </Link>
+            <Link to="/register">
+              <Button>Register</Button>
+            </Link>
+          </StyledNavBarButtonContainer>
         </>
       )}
       {isSignedIn && <Button onClick={handleLogout}>Logout</Button>}
