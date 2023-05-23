@@ -12,14 +12,19 @@ const Participant = ({ participant, onDelete }) => {
 
   const handleRemove = async (e) => {
     e.preventDefault();
-    try {
-      await axios.delete(
-        `http://localhost:8000/participants/${participant.id}`
-      );
-      onDelete(participant.id);
-      navigate("/participants");
-    } catch (error) {
-      console.log(error);
+    const confirmed = window.confirm(
+      "Are you sure you want to remove this participant?"
+    );
+    if (confirmed) {
+      try {
+        await axios.delete(
+          `http://localhost:8000/participants/${participant.id}`
+        );
+        onDelete(participant.id);
+        navigate("/participants");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
