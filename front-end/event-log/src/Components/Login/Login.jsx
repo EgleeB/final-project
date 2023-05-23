@@ -14,7 +14,9 @@ import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 
 const LoginForm = () => {
-  const { setIsSignedIn } = useContext(AuthenticationContext);
+  const { setIsSignedIn, setAdminId, adminId } = useContext(
+    AuthenticationContext
+  );
   const [errorMessage, setErrorMessage] = useState("");
 
   const [form, setForm] = useState({
@@ -33,12 +35,14 @@ const LoginForm = () => {
     axios
       .post("http://localhost:8000/login", form)
       .then((response) => {
-        const { token } = response.data;
+        const { token, admin_id } = response.data;
         localStorage.setItem("token", token);
         setIsSignedIn(true);
-        navigate("/participants");
-        console.log(response);
+        console.log("Admin ID before setting:", adminId);
+        setAdminId(admin_id);
+        console.log("Admin ID after setting:", admin_id);
         console.log(response.data);
+        navigate("/participants");
       })
       .catch((err) => {
         setErrorMessage("Incorrect email or password");

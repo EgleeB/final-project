@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
+  background-color: #edf5ef;
+  height: 100vh;
   text-align: center;
-  padding: 20px;
+  padding: 40px;
 `;
 
 export const Title = styled.h1`
@@ -17,11 +19,14 @@ export const Form = styled.form`
 
 export const Label = styled.label`
   margin-top: 10px;
+  font-weight: 700;
 `;
 
 export const Input = styled.input`
   padding: 5px;
   margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #000000;
 `;
 
 export const Button = styled.button`
@@ -31,6 +36,7 @@ export const Button = styled.button`
   border: none;
   padding: 10px;
   border-radius: 10px;
+  width: 80px;
   cursor: pointer;
 `;
 

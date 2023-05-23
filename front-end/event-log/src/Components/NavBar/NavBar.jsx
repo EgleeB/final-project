@@ -1,12 +1,9 @@
-import {
-  StyledNavBar,
-  StyledNavBarLink,
-  StyledButton,
-} from "../Styles/StyledNavBar";
+import { StyledNavBar, StyledNavBarLink } from "../Styles/StyledNavBar";
 
 import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../Styles/StyledRegistration";
 
 const NavBar = () => {
   const { isSignedIn, setIsSignedIn } = useContext(AuthenticationContext);
@@ -30,11 +27,12 @@ const NavBar = () => {
         </>
       ) : (
         <>
+          <StyledNavBarLink href="/">Home</StyledNavBarLink>
           <StyledNavBarLink href="/login">Login</StyledNavBarLink>
           <StyledNavBarLink href="/register">Register</StyledNavBarLink>
         </>
       )}
-      {isSignedIn && <StyledButton onClick={handleLogout}>Logout</StyledButton>}
+      {isSignedIn && <Button onClick={handleLogout}>Logout</Button>}
     </StyledNavBar>
   );
 };

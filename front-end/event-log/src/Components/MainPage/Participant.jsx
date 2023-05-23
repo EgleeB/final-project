@@ -5,6 +5,7 @@ import {
 } from "../Styles/StyledParticipant";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../Styles/StyledRegistration";
 
 const Participant = ({ participant, onDelete }) => {
   const navigate = useNavigate();
@@ -27,9 +28,9 @@ const Participant = ({ participant, onDelete }) => {
       <ParticipantName>
         {participant.first_name} {participant.last_name}
       </ParticipantName>
-      <ParticipantInfo>{participant.email} </ParticipantInfo>
+      <ParticipantInfo> {participant.email} </ParticipantInfo>
       <ParticipantInfo>{participant.phone_number}</ParticipantInfo>
-      <button onClick={handleRemove}> Remove</button>
+      <Button onClick={handleRemove}> Remove</Button>
     </ParticipantContainer>
   );
 };

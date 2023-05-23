@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import {
   FormContainer,
@@ -9,13 +9,17 @@ import {
   Button,
 } from "../Styles/StyledRegistration";
 import { useNavigate } from "react-router-dom";
+import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 
 const ParticipantForm = () => {
+  const { adminId } = useContext(AuthenticationContext);
+
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
     email: "",
     phone_number: "",
+    admin_id: adminId,
   });
 
   const navigate = useNavigate();
@@ -26,14 +30,22 @@ const ParticipantForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8000/participants", form)
-      .then((response) => {
-        navigate("/participants");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const data = {
+      admin_id: adminId, // Include the adminId in the request body
+      ...form, // Include other participant data
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/participants",
+        data
+      );
+      navigate("/participants");
+      console.log(response);
+      console.log(adminId);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

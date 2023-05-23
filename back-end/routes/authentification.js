@@ -57,6 +57,7 @@ router.post("/login", (req, res) => {
           res.json({
             message: "Succesfully logged in!",
             token,
+            admin_id: id,
           });
         } else {
           incorrectCredentialsResponse();

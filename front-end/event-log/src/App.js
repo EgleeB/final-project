@@ -8,6 +8,7 @@ import LoginForm from "./Components/Login/Login";
 import ParticipantsList from "./Components/MainPage/ParticipantsList";
 import ParticipantForm from "./Components/MainPage/ParticipantForm";
 import Protected from "./Components/Authentication/ProtectedRoute";
+import FrontPage from "./Components/FrontPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/" element={<FrontPage />} />
         <Route element={<Protected />}>
           <Route path="/participants" element={<ParticipantsList />} />
           <Route path="/addParticipant" element={<ParticipantForm />} />

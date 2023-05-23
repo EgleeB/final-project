@@ -37,7 +37,9 @@ const ParticipantsList = () => {
   return (
     <>
       <ParticipantsContainer>
-        <ParticipantsTitle>Participants List</ParticipantsTitle>
+        <ParticipantsTitle>Registered participants</ParticipantsTitle>
+      </ParticipantsContainer>
+      <ParticipantsContainer>
         {participants.map((participant) => {
           return (
             <Participant
