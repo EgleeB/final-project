@@ -4,7 +4,6 @@ import {
   StyledNavBarButtonContainer,
   StyledNavBarLink,
 } from "../Styles/StyledNavBar";
-
 import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";

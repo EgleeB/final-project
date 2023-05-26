@@ -5,6 +5,7 @@ import {
   ParticipantsTitle,
 } from "../Styles/StyledParticipantsList";
 import Participant from "./Participant";
+import { ParticipantTotal } from "../Styles/StyledParticipant";
 
 const ParticipantsList = () => {
   const [participants, setParticipants] = useState([]);
@@ -20,7 +21,7 @@ const ParticipantsList = () => {
       setParticipants(response.data);
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      alert("Something went wrong");
     }
   };
 
@@ -34,9 +35,14 @@ const ParticipantsList = () => {
     return <div>Loading...</div>;
   }
 
+  const participantsCount = participants.length;
+
   return (
     <>
-      <ParticipantsTitle>Registered participants</ParticipantsTitle>
+      <ParticipantsTitle>
+        Registered participants
+        <ParticipantTotal>Total: {participantsCount} </ParticipantTotal>
+      </ParticipantsTitle>
 
       <ParticipantsContainer>
         {participants.map((participant) => {

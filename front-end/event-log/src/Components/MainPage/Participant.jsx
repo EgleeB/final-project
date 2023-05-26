@@ -23,7 +23,7 @@ const Participant = ({ participant, onDelete }) => {
         onDelete(participant.id);
         navigate("/participants");
       } catch (error) {
-        console.log(error);
+        alert("Something went wrong");
       }
     }
   };

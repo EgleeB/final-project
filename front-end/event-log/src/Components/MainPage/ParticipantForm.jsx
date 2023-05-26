@@ -61,7 +61,7 @@ const ParticipantForm = () => {
       await axios.post("http://localhost:8000/participants", capitalizedForm);
       navigate("/participants");
     } catch (err) {
-      console.error(err);
+      alert("Something went wrong");
     }
   };
 

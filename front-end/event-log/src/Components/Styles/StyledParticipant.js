@@ -32,3 +32,8 @@ export const Button = styled.button`
   cursor: pointer;
   align-self: flex-end;
 `;
+
+export const ParticipantTotal = styled.p`
+  margin-top: 10px;
+  color: #333;
+`;

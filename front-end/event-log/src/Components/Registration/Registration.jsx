@@ -62,10 +62,9 @@ const RegistrationForm = () => {
       .post("http://localhost:8000/register", capitalizedForm)
       .then((response) => {
         navigate("/login");
-        console.log(response);
       })
       .catch((err) => {
-        console.log(err);
+        alert("Something went wrong");
       });
   };
 
