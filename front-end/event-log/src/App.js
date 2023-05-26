@@ -2,7 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./Components/NavBar/NavBar";
+import Header from "./Components/Header/Header";
 import RegistrationForm from "./Components/Registration/Registration";
 import LoginForm from "./Components/Login/Login";
 import ParticipantsList from "./Components/MainPage/ParticipantsList";
@@ -13,7 +13,7 @@ import FrontPage from "./Components/FrontPage";
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegistrationForm />} />

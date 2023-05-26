@@ -5,6 +5,7 @@ export const FormContainer = styled.div`
   height: 100vh;
   text-align: center;
   padding: 40px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`

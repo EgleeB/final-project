@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Title, Description } from "./Styles/StyledFrontPage";
-
 import { Link } from "react-router-dom";
 import { Button } from "./Styles/StyledRegistration";
 
@@ -15,7 +14,7 @@ const FrontPage = () => {
         experience.
       </Description>
       <Link to="/login">
-        <Button>Log in</Button>{" "}
+        <Button>Log in</Button>
       </Link>
     </Container>
   );

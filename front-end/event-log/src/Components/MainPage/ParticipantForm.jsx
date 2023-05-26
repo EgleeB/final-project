@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import {
   FormContainer,
@@ -10,17 +10,13 @@ import {
   Error,
 } from "../Styles/StyledRegistration";
 import { useNavigate } from "react-router-dom";
-import { AuthenticationContext } from "../Authentication/AuthentificationContext";
 
 const ParticipantForm = () => {
-  const { adminId } = useContext(AuthenticationContext);
-
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
     email: "",
     phone_number: "",
-    admin_id: adminId,
   });
 
   const [emailError, setEmailError] = useState("");
@@ -62,15 +58,10 @@ const ParticipantForm = () => {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:8000/participants",
-        capitalizedForm
-      );
+      await axios.post("http://localhost:8000/participants", capitalizedForm);
       navigate("/participants");
-      console.log(response);
-      console.log(adminId);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

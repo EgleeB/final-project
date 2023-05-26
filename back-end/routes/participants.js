@@ -11,14 +11,14 @@ router.get("/participants", (req, res) => {
 });
 
 router.post("/participants", (req, res) => {
-  const { admin_id, first_name, last_name, email, phone_number } = req.body;
+  const { first_name, last_name, email, phone_number } = req.body;
 
   const participantQuery =
-    "INSERT INTO participants (admin_id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ? )";
+    "INSERT INTO participants (first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?)";
 
   dbConnection.execute(
     participantQuery,
-    [admin_id, first_name, last_name, email, phone_number],
+    [first_name, last_name, email, phone_number],
     (err, result) => {
       defaultCallback(err, result, res);
     }

@@ -19,9 +19,10 @@ This is a simple application for registering participants for an event or progra
 ## Usage
 
 1. Access the application through the provided URL or local development server.
-2. Fill out the participant registration form with the required information.
-3. Submit the form to register the participant.
-4. View the list of registered participants and manage their information as needed.
+2. Register as an admin and log into the application.
+3. Fill out the participant registration form with the required information.
+4. Submit the form to register the participant.
+5. View the list of registered participants and manage their information as needed.
 
 ## Technologies Used
 
